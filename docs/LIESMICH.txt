@@ -1,0 +1,387 @@
+DocumentAI – INSTALLER (portabel & offline)
+===========================================
+Stand: 11.09.2026 (v18 – Tiefenprüfung der Felderkennung: saubere Raster-Labels, keine Phantom-Felder)
+
+Was das leistet
+---------------
+EIN Doppelklick auf „DocumentAI-installieren.bat“ installiert die komplette
+Anwendung – inklusive eigener Python-Runtime und aller Bibliotheken:
+
+  • kein vorinstalliertes Python nötig (Runtime 3.12.8 liegt bei)
+  • kein Internet nötig (alle Pakete im Ordner „payload“ enthalten)
+  • keine Adminrechte, keine Registry, kein Program-Files-Zwang
+  • Zielordner frei wählbar – auch USB-Stick/Netzwerklaufwerk (portabel)
+  • entfernt automatisch „Mark of the Web“-Blockierungen (ursächlich für
+    die Windows-Meldung „Ein Teil dieser App wurde blockiert“, z. B. bei
+    etree.cp312-win_amd64.pyd aus Browser-Downloads)
+  • prüft sich am Ende selbst (Bibliotheken, Fenster-System, echte
+    Anwendungs-Selbstdiagnose)
+  • optionale Komponenten automatisch nachladen: Auf die Frage
+    „Optionale Komponenten … nachladen?“ mit J (oder Enter) antworten –
+    dann lädt der Installer Tesseract OCR (Texterkennung, inkl. deutsch)
+    und Ghostscript (PDF/A-Export) von ihren offiziellen Open-Source-
+    Quellen und installiert sie PORTABEL nach <Ziel>\tools\ (keine
+    Adminrechte, keine Registry). Ohne Internet: Meldung, Installation
+    läuft ohne weiter – später einfach erneut starten.
+  • Schutz: Zielordner in Windows-/Program-Ordnern werden abgelehnt
+    (klare Anleitung stattdessen)
+
+Schritte
+--------
+1. Paket entpacken (falls als ZIP geliefert)
+2. „DocumentAI-installieren.bat“ doppelklicken
+3. Zielordner bestätigen (Enter = Standard) – fertig
+4. Start über die neue Desktop-Verknüpfung „DocumentAI 1.9.1“ oder
+   „DocumentAI-starten.bat“ im Zielordner
+
+NEU IN VERSION 12 (1.5.0) – der komplette Werkzeugkatalog
+------------------------------------------------------
+Alle Werkzeuge aus dem Acrobat-Pro-Bildschirmfoto-Katalog sind jetzt
+enthalten – lokal und ohne Abo („Kostenlos testen" gibt es hier nicht,
+die App IST kostenlos):
+
+- ZEICHNEN & FORMEN: Linie, Pfeil (mit echter Pfeilspitze), Kreis,
+  Rechteck, Freihand-Feder – alles als echte PDF-Annotationen.
+- FORMULAR AUSFÜLLEN: Kreuz, Häkchen, Punkt, Umrunden,
+  Durchstreichen – ein Klick genügt (Fill & Sign).
+- KOMMENTIEREN: Markieren, Unterstreichen, Durchstreichen, Text
+  ersetzen, Haftnotiz, Freihand – plus „Datei anhängen…".
+- OBJEKTE MESSEN: Abstand aufziehen, Anzeige in Punkt/cm/Zoll.
+- INHALT HINZUFÜGEN: Text, Bild, Verknüpfung (Web-Link wird
+  automatisch zu https:// ergänzt), Bates-Nummerierung.
+- ANSICHT: Auswählen, Schwenken (Handwerkzeug), Zoom, Drehen.
+- Alles wie immer: lokal, offline, ohne Cloud, ohne KI-Assistent.
+
+NEU IN VERSION 13 (1.6.0) – automatisch sauber bleiben
+------------------------------------------------------
+Der Installer räumt jetzt bei JEDER Installation automatisch auf:
+
+- ALTE VERKNÜPFUNGEN: Jede „DocumentAI…“-Verknüpfung auf dem Desktop
+  (alte ohne Zahl, alte mit Zahl) wird gelöscht. Übrig bleibt genau
+  EINE: die frisch erstellte „DocumentAI 1.9.1“.
+- ALTE INSTALLATIONEN: Installationsordner früherer Versionen (z. B.
+  die alte Version 8) werden automatisch gefunden und gelöscht –
+  auf dem Desktop, in Downloads/Dokumente, im Benutzerprofil und
+  neben dem neuen Zielordner.
+- IHRE DATEN BLEIBEN: Config, Datentresor, Berichte, Backups der
+  alten Installation werden vorher gerettet und in die neue
+  Installation übernommen. Gelöscht wird die alte Version, nie der
+  Datentresor.
+- VERSIONSZWANG: Jede neue Installer-ZIP trägt Nummer UND App-Version
+  im Namen (z. B. „…_v13_1.6.0.zip“) – Verwechslungen ausgeschlossen.
+  Die Version steht zusätzlich in Titelleiste, Verknüpfung und
+  VERSION.txt im Zielordner.
+
+Damit die Aufräumarbeit gelingt: Bitte alle DocumentAI-Fenster
+SCHLIESSEN, bevor Sie ein Update installieren (offene Programme
+können sonst nicht gelöscht werden – der Installer sagt dann
+Bescheid, welcher Ordner von Hand weg muss).
+
+NEU IN VERSION 18 (1.9.1) – Tiefenprüfung der Felderkennung
+--------------------------------------------------------------------
+Jede Erkennungsregel wurde gegen ein echtes Formular Stück für
+Stück nachgeprüft und verfeinert:
+
+- TABELLEN-RASTER: Tabellen-Zellen werden zuerst erkannt und
+  erhalten saubere Beschriftungen (mehrzeilige Zeilen-Phrase +
+  Spalten-Header). Wochentags-Spalten (Mo–So) werden automatisch
+  Ankreuzfelder.
+- KEINE PHANTOM-FELDER mehr auf Gitter-Trennlinien und keine
+  Phantom-Eingabebänder über Spalten-Headern.
+- BESCHRIFTUNGEN: enden sauber am letzten Doppelpunkt; Phrasen
+  über, unter und neben Feldern werden vollständig gelesen.
+
+NEU IN VERSION 17 (1.9.0) – Positionierung wie von Hand geschrieben
+----------------------------------------------------------------------
+- TEXT AUF DER LINIE: Erkannte Textfelder sitzen jetzt exakt auf
+  der Eingabelinie des Formulars (wie wenn Sie von Hand in ein
+  Formular schreiben) – nicht mehr auf der Beschriftung. Vier-Feld-
+  Zeilen (Name/Vorname/Geburtsort/Geburtsdatum) werden vollständig
+  erkannt, jede Spalte mit eigenem Feld.
+- FELDER VERSCHIEBEN: Werkzeug „Feld verschieben“ (Ansicht) –
+  erkannte Felder anklicken und an die richtige Stelle ziehen.
+- WERKZEUG-SYMBOLE: Jedes Werkzeug hat jetzt ein passendes Symbol
+  (Feder, Pfeil, Wolke, Lineal, Word/Excel/PowerPoint …) und zeigt
+  beim Überfahren eine Erklärung in der Statusleiste.
+- HELLES/DUNKLES DESIGN: Umschalter (Sonne/Mond) in der Navigations-
+  leiste. Die Wahl wird gespeichert.
+- BESSERE OCR-ERKENNUNG: Scans werden vor der Texterkennung auf-
+  bereitet (Graustufen, Vergrößerung, Kontrast) – kleine Beschrift-
+  ungen werden sicherer erkannt.
+
+NEU IN VERSION 16 (1.8.0) – Felderkennung für echte Formulare
+--------------------------------------------------------------------
+Verglichen mit einem echten Schul-Anmeldeformular und gründlich
+überarbeitet:
+
+- MEHR FELDER: Eingabebänder UNTER Beschriftungen (Gittertabellen)
+  werden erkannt – Telefon, Mutter/Vater-Angaben u. v. m.
+- KEINE SCHEINFELDER mehr: Seitenrahmen und Zierlinien erzeugen
+  keine Phantom-Felder mehr („Feld 10/11“ ist vorbei).
+- RICHTIGE TYPEN: „Bisherige Schule“ ist Text (war fälschlich
+  Datum), „Einstieg Bushaltestelle“ ist Text (war fälschlich
+  Telefon). Deutsche Komposita wie „Telefonnummer“ bleiben
+  korrekt erkannt.
+- GETRENNTE OPTIONEN: „Mutter“/„Vater“/„gemeinsam“ und „ES“/„L“
+  sind eigene Checkboxen mit eigenen Beschriftungen (vorher
+  verschmolzen).
+- VIER-FELD-ZEILEN: Name/Vorname/Geburtsort/Geburtsdatum in einer
+  Zeile werden alle vier erkannt.
+- UNTERSCHRIFT: Linien mit Beschriftung DARUNTER werden korrekt
+  als Unterschriftsfeld erkannt.
+
+NEU IN VERSION 15 (1.7.1) – „Das darf nicht passieren“ ist behoben
+--------------------------------------------------------------------
+Bei manchen PCs blockiert Windows Bibliotheks-Dateien über eine
+Anwendungssteuerungsrichtlinie (z. B. Smart App Control). In Version
+14 brach daraus die ganze Installation ab. Jetzt:
+
+- Die Installation läuft IMMER durch: Kern-Funktionen werden strikt
+  geprüft, Format-Zusätze (Word/Excel/RTF/PowerPoint) einzeln und
+  fehlertolerant.
+- Ist eine Datei von Windows blockiert, meldet der Installer das
+  klar mit Freigabe-Anleitung und installiert den Rest trotzdem.
+- Die App startet und arbeitet auch ohne die blockierte Datei –
+  nur das jeweilige Format ist dann deaktiviert (mit klarer
+  Meldung im Programm).
+
+FREIGABE BLOCKIERTER DATEIEN (falls Windows etwas sperrt):
+  Einstellungen > Datenschutz und Sicherheit > Windows-Sicherheit >
+  App- und Browsersteuerung > Einstellungen für Smart App Control >
+  „Aus“ wählen. Danach die Installation erneut ausführen – dann sind
+  auch Word-/PowerPoint-Formate wieder verfügbar.
+
+NEU IN VERSION 14 (1.7.0) – die letzten Acrobat-Lücken geschlossen
+--------------------------------------------------------------------
+Aus den heutigen Acrobat-Screenshots übernommen:
+
+- ZEICHNEN komplett: Polygon (Klick für Klick Punkte setzen,
+  Doppelklick beendet), Verbundene Linien, Kommentarwolke (gezackte
+  Bögen) und Textlegende (Zeigerlinie + Beschriftung).
+- KONVERTIEREN: PDF nach Microsoft Excel (.xlsx), Microsoft
+  PowerPoint (.pptx, Folie je Seite mit Bild + Text in den Notizen)
+  und RTF – zusätzlich zu Word, Text und Bildern. Neues Panel
+  „Konvertieren" und Menü „In Word, Excel oder PowerPoint
+  konvertieren …" (Strg+D = Dokumenteigenschaften).
+- DOKUMENTEIGENSCHAFTEN: Titel, Autor, Thema, Schlagwörter bearbeiten
+  (Menü Datei, Tastenkombination Strg+D).
+- ZERTIFIZIERTE KOPIE: schreibgeschützte, versiegelte Kopie (AES-256)
+  – für jeden lesbar und druckbar, für niemanden änderbar.
+- BEGRENZUNGSRAHMEN ANZEIGEN: Rahmen um Text (blau), Bilder (grün)
+  und Grafiken (orange) ein-/ausblenden.
+
+Nicht übernommen (bewusst): Abo-/Cloud-/KI-Funktionen wie „Kostenlos
+testen", Anmelden, PDF Spaces, KI-Assistent, Generative Zusammen-
+fassung, E-Signaturen anfordern – die App arbeitet komplett lokal
+und offline. Auch JavaScript im PDF (Sicherheitsrisiko) und Rich
+Media (Video/Audio) bleiben draußen.
+
+WICHTIG – die richtige Version erkennen (Update-Stand 09.09.2026):
+- Die Desktop-Verknüpfung heißt jetzt „DocumentAI 1.9.1“ (mit Zahl!).
+  Ältere Verknüpfungen ohne Zahl gehören zu ALTEN Installationen –
+  löschen Sie sie, um Verwechslungen zu vermeiden.
+- Die Titelleiste des Fensters muss „DocumentAI 1.9.1“ zeigen.
+- Im Zielordner liegt eine Datei VERSION.txt mit derselben Nummer.
+- Zeigt die Titelleiste KEINE Zahl, läuft noch eine alte Version:
+  dann wurde nicht diese Installation gestartet. Alte Fenster
+  schließen und die neue Verknüpfung „DocumentAI 1.9.1“ verwenden.
+
+Qualitätsversprechen (ab 05.09.2026)
+------------------------------------
+Sämtliche Testläufe erfolgen STRIKT: Warnungen gelten als Fehler und
+werden an der Wurzel behoben (nicht weggefiltert) – nachgewiesen in
+§21 des Windows-Testberichts: 144 Tests Windows + 144 Tests Host,
+0 Fehler, 0 Warnungen; Signatur-Validierung mit expliziten
+Trust-Roots; offene Datei-Handles abgeschafft.
+
+Neu in Version 11 – Versionierung Narrensicher (09.09.2026)
+--------------------------------------------------------------------
+- DESKTOP-VERKNÜPFUNG MIT VERSION: heißt jetzt „DocumentAI 1.9.1“ –
+  alte Verknüpfungen (ohne Zahl) sind sofort als veraltet erkennbar
+  und können nicht mehr versehentlich eine alte Installation starten.
+- VERSION.TXT im Zielordner: Installations-Stand auf einen Blick.
+- Titelleiste zeigt weiterhin „DocumentAI 1.9.1“ (aus Version 10).
+
+Neu in Version 10 – Version immer sichtbar (09.09.2026)
+--------------------------------------------------------------------
+- VERSIONS-ANZEIGE: Die Versionsnummer steht jetzt in der TITELLEISTE
+  (und damit in der Taskleiste), im Fenstertitel neben jedem geöffneten
+  Dokument und im Menü unter „Über DocumentAI“.
+  Hintergrund: Ein Nutzer-Test lief noch gegen die alte Version 8 –
+  der dortige Fehler („tuple has no attribute x“ beim Textfeld-Setzen)
+  war in Version 9 bereits behoben, aber ohne sichtbare Version nicht
+  erkennbar. Bitte prüfen Sie nach dem Installieren die Titelleiste:
+  Dort muss „DocumentAI 1.9.1“ stehen.
+- WICHTIG FÜR DAS UPDATE: Falls nach der Installation noch der alte
+  Fehler erscheint, wurde die neue Version nicht gestartet – alte
+  Installation (anderer Ordner) schließen und über die neue
+  „DocumentAI-starten.bat“ bzw. die neue Desktop-Verknüpfung starten.
+
+Neu in Version 9 – Zeilen-Formulare, Textfeld-Werkzeug wie Acrobat (09.09.2026)
+--------------------------------------------------------------------
+- ZEILEN-FORMULARE KORREKT ERKANNT: Formulare mit durchgehenden
+  Zeilenlinien (Word-Stil, Labels sitzen auf der Linie) bekommen jetzt
+  pro Label GENAU EIN Feld auf dem freien Linienabschnitt – der Text
+  steht exakt auf der Linie (Acrobat: „just above the baseline“).
+  Vorher: ein einziges Riesenfeld über die ganze Zeile, Labels fehlten.
+  Mehrwort-Labels („Telefon / Notfallkontakte“) werden komplett erkannt.
+- TEXTFELD-WERKZEUG ENDLICH WIRKLICH FUNKTIONSFÄHIG: Der GUI-Klick-Weg
+  crashete bisher unsichtbar („tuple has no attribute x“) – behoben.
+  Jetzt wie in Acrobat Reader DC: Klick auf eine Formular-Linie setzt
+  das Feld direkt auf die Linie; Klick in ein bestehendes Feld öffnet
+  es zum direkten Tippen (ohne Dialog); Ziehen zieht ein Feld in
+  beliebiger Größe mit sichtbarem Auswahlrechteck.
+- WERKZEUG-BANNER STATT MODUS-FALLE: Jedes aktive Werkzeug zeigt ein
+  gelbes Banner über der Seite mit „Fertig (Esc)“-Knopf. Esc beendet
+  die Eingabe, ein zweites Esc das Werkzeug; der Kopfleisten-Knopf
+  schaltet das Werkzeug ebenfalls aus. Niemand ist mehr im Modus
+  gefangen.
+- FORMULAR AUSFÜLLEN-GRUPPE: „Textfeld einfügen“, „Felder automatisch
+  erkennen“, „Feld entfernen“, „Unterschrift wählen“ jetzt auch im
+  Werkzeuge-Panel (links) zu finden.
+
+Neu in Version 8 – Tabellen-Felder, Seiten verziehen, azurblaue Feder (09.09.2026)
+--------------------------------------------------------------------
+- MEHRERE TEXTFELDER AUCH IN TABELLEN: Die automatische Erkennung
+  findet jetzt ALLE leeren Zellen eines Formular-Rasters (Name,
+  Vorname, PLZ …) – nicht mehr nur das eine beste Feld. Datentabellen
+  (z. B. ausgefüllte Kostenübersichten) bleiben bewusst außen vor.
+- LABEL-LÜCKEN AUCH IN DIGITAL-PDFs: Zeilen wie „Notizen:“ mit leerer
+  Fläche daneben werden jetzt auch bei echten Text-PDFs erkannt.
+- SEITEN NEU ANORDNEN (Drag & Drop): Miniaturansicht einfach an die
+  gewünschte Position ziehen – Felder, Markierungen und Schwärzungen
+  wandern mit, alles bleibt synchron. Auch die Dokument-Tabs oben
+  lassen sich per Drag neu sortieren.
+- MINIATURANSICHTEN SAUBER: Der Rahmen folgt jetzt exakt dem
+  Seitenverhältnis (Hoch-/Querformat) in höherer Auflösung; das
+  Seiten-Panel ist beim Öffnen sofort sichtbar.
+- MAUSRAD BLÄTTERT: Scrollt innerhalb der Seite und blättert an
+  Ober-/Unterkante auf die nächste Seite – jetzt auch unter Windows.
+- SCHNELLZUGRIFF OBEN: „Textfeld einfügen“, „Felderkennung ⚡“,
+  „Autom. befüllen“ und „Rückgängig“ direkt in der Kopfleiste.
+- AZURBLAUE FEDER ALS ICON: Fenster, Taskleiste und Desktop-Verknüpfung
+  zeigen die Feder jetzt in Azurblau mit transparentem Hintergrund.
+- OCR ROBUSTER: Die integrierte Texterkennung läuft jetzt zuerst
+  (funktioniert ohne installiertes Tesseract), die externe Engine
+  dient nur noch als Rückfall.
+
+Neu in Version 7 – Textfeld-Werkzeug & Unterschriften (09.09.2026)
+--------------------------------------------------------------------
+- TEXTFELD EINFÜGEN (manuell): Rahmen auf der Seite aufziehen – wie
+  in Acrobat. Klick ohne Zug setzt ein Standardfeld. Felder sind in
+  der Felder-Liste bearbeitbar, füllbar und entfernbar (Entf-Taste).
+- TEXTFELDER AUTOMATISCH ERKENNEN: ein Klick – das Programm setzt
+  Textfelder selbstständig (holt fehlende OCR nach und verbessert
+  unbeschriftete Felder zu richtigen Feldern mit Beschriftung).
+- SIGNIEREN MIT STIFT: neues Unterschriften-Pad für Maus, Touchpad
+  und Zeichentablet/Stift – mehrere Striche, geglättete Linien,
+  Strichstärke passt sich der Zeichengeschwindigkeit an.
+- GESPEICHERTE UNTERSCHRIFTEN: beliebig viele Unterschriften lokal
+  speichern (mit Vorschau) und jederzeit wieder verwenden.
+
+Neu in Version 6 – Scan-Erkennung & sauberes Ersetzen (05.09.2026)
+--------------------------------------------------------------------
+- Textfeld-Erkennung funktioniert jetzt auch bei GESCANNTEN und
+  bereits AUSGEFÜLLTEN Formularen – präzise auf die Linie:
+  Raster-Analyse (Binarisierung + Linienerkennung) findet Feldlinien,
+  Eingaberahmen und Kontrollkästchen im Scan.
+- OCR ist jetzt INTEGRIERT: es wird kein Tesseract mehr zusätzlich
+  benötigt – die Sprachdaten (Deutsch/Englisch) liegen der App bei.
+  Läuft komplett lokal und offline.
+- Korrekturen ersetzen vorhandene Einträge SAUBER: handschriftliche
+  oder alte Einträge werden pixelgenau entfernt (die Feldlinie und
+  der Kästchenrand bleiben erhalten) und durch den neuen Wert ersetzt.
+- Neue Schaltfläche „Dokument neu einlesen“: lädt die Datei frisch
+  von der Platte und analysiert sie komplett neu.
+
+Neu in Version 5 – komplette Acrobat-Benutzeroberfläche
+------------------------------------------------------------------
+  • Dunkle Kopfzeile wie im neuen Acrobat: Dokument-Tabs mit ✕,
+    Suche rechts, Akzentknopf „Neue Version“, Hamburger-Menü „≡“
+    (das neue Acrobat hat keine klassische Menüleiste mehr – alle
+    Befehle im ≡-Blatt, zusätzlich Tastaturkurzbefehle Strg+O/S/P/
+    B/Z/Y/±)
+  • Navigationsschiene links (Werkzeuge · Seiten · Lesezeichen ·
+    Kommentare · Anhänge) – wie Acrobates Seiten-/Werkzeugbereich
+  • „Alle Werkzeuge“-Panel: 30 Werkzeuge in Kategorien
+    (Kommentieren, Schützen & Signieren, Seiten organisieren,
+    Dokument & Ausgabe, Auszeichnen & Stempel)
+  • Seitenbereiche mit Miniatur-Thumbnails (Klick = Seite zeigen)
+  • Lesezeichen-Bereich (Inhaltsverzeichnis, anlegen/löschen/springen)
+  • Kommentarliste (alle Markierungen/Notizen, Doppelklick = Seite)
+  • Anlagenbereich (eingebettete Dateien ansehen/extrahieren)
+  • Navigationsleiste über dem PDF: ◀ Seite ▶, Zoom −/+, Drehen,
+    An Breite anpassen, Felder ein-/ausblenden
+  • NEUE Werkzeuge: Seiten drehen (Bereich), Leerseite einfügen,
+    Seiten aus anderem PDF einfügen, Hintergrundfarbe,
+    Lesezeichen, Als Bilder exportieren (PNG je Seite)
+  • Direkt ins Feld schreiben (Klick → tippen → Enter) u. v. m.
+    aus v4: Signieren (Maus/Bild/PAdES-Zertifikat), Wasserzeichen,
+    Bates-Nummerierung, Stempel, Suchen & schwärzen, Optimieren …
+
+Neu in Version 4 (Acrobat-Pro-Ausbau, alles lokal & offen-source)
+------------------------------------------------------------------
+  • DIREKT INS FELD SCHREIBEN: Formularfeld anklicken, eintippen,
+    Enter – der Wert erscheint sofort im PDF (Tab springt weiter,
+    Esc bricht ab). Häkchen-Felder: einmal anklicken.
+  • SIGNIEREN – drei Wege, alle ohne Cloud/Konto:
+       – mit der Maus zeichnen (Freihand)
+       – Unterschrifts-Bild (PNG/JPG) platzieren
+       – Digitale Signatur (PAdES): Zertifikat wird lokal erzeugt,
+         gehört Ihnen, verlässt den Rechner nie; Prüfung eingebaut
+  • Zweite Werkzeugleiste „Extras“: Wasserzeichen, Kopf-/Fußzeilen
+    (inkl. Seitenzahlen & Bates-Nummerierung), Stempel (Amts-Stempel
+    wie GEPRÜFT/VERTRAULICH/FINAL), Text einfügen, Suchen & schwärzen,
+    Seiten verschieben, Zuschneiden, PDF optimieren, Formular
+    abflachen, Anhänge einbetten, Drucken, PDF aus Bildern erstellen
+  • Modernes Oberflächen-Design (helle Optik, Akzentknopf,
+    breitere PDF-Ansicht)
+  • Keine doppelten Feldnamen/Zuordnungen mehr (bereinigt + getestet)
+  • Bereinigt: keine Altlasten mehr im Paket (Backups, Logs,
+    Diagnosen, Test-Zertifikate sind entfernt)
+
+Hinweis SmartScreen: Windows kann beim ersten Start des Installers
+„Windows hat Ihren PC geschützt“ zeigen (kein Signaturzertifikat).
+Dann „Weitere Informationen“ → „Trotzdem ausführen“ wählen.
+
+Deinstallation: Zielordner löschen. Fertig. (Optional erstellte
+Desktop-Verknüpfung ebenfalls löschen.)
+
+Inhalt
+------
+DocumentAI-installieren.bat   Einstieg (Doppelklick)
+payload/DocumentAI-app.zip    die Anwendung (Quellcode, Tests, Vorlagen)
+payload/python-3.12.8-…zip    offizielle Python-Runtime (python.org)
+payload/wheels/               alle Bibliotheken als Offline-Pakete
+payload/tcltk-win64.zip       tkinter/Tk 8.6 (aus python.org-Installer)
+payload/get-pip.py + install_tail.py  Installationslogik
+LIESMICH.txt                  diese Datei
+
+Datenschutz: Alles läuft vollständig lokal – keine Cloud, keine Telemetrie
+mit Dokumentinhalten, keine Uploads. Der Datentresor speichert persönliche
+Daten AES-256-verschlüsselt; das Master-Passwort wird nie gespeichert.
+
+Kurze CLI-Beispiele (DocumentAI-CLI.bat bzw. runtime\python.exe)
+----------------------------------------------------------------
+  DocumentAI.py analyse "C:\pfad\rechnung.pdf"
+  DocumentAI.py datenbank erstellen --passwort "IhrMaster" --db "C:\tresor.dat"
+  DocumentAI.py datenbank person-anlegen --name "Kim Mustermann" --passwort …
+  DocumentAI.py datenbank daten-setzen --person "Kim Mustermann" --key iban
+        --wert DE00… --passwort …        (Person stets mit VOLLSTÄNDIGEM Namen)
+  Dokumente mit Passwortschutz: --passwort-dokument beim analyse-Befehl.
+
+Dieser Installer (v4) wurde unter Windows (Wine 11.16) komplett durchgetestet:
+Frisch-Installation (jungfräuliche Umgebung, Netz gesperrt), Komplettsuite
+(144 Tests bestanden, inkl. Signieren/Verifizieren), CLI/Vault-Zyklus,
+GUI mit Dokument – Details im windows-testbericht.md (§9).
+
+
+
+Mitgelieferte Werkzeuge / Lizenzen
+----------------------------------
+• 7-Zip (7z.exe/7z.dll, LGPL) in payload\7z – entpackt die Setup-Archive
+  der Komponenten, ohne sie auszuführen (InnoSetup-Archive).
+• Tesseract OCR (Apache-2.0, UB-Mannheim-Build) und deutsche/englische
+  traineddata (Apache-2.0, tessdata_fast) – Download beim Nachladen.
+• Ghostscript (AGPL) – Download beim Nachladen. AGPL: Quellen offen
+  (ghostscript.com), Weitergabe mitsamt Lizenztext erlaubt.

@@ -1,0 +1,19 @@
+# DocumentAI – Abhängigkeiten
+# Kern (PDF-Engine, Formulare, Rendern, Tabellen)
+pymupdf>=1.24
+pypdf>=4.0
+Pillow>=10.0
+# Verschlüsselte Datenbank (AES-256-GCM, erforderlich für Datentresor)
+cryptography>=42.0
+
+# Optionale Formate (sonst degradiert der jeweilige Importer sauber)
+python-docx>=1.1        # DOCX
+openpyxl>=3.1           # XLSX
+striprtf>=0.0.26        # RTF
+keyring>=24.0           # optional: Master-Passwort im Windows-Keyring
+
+# OCR (zusätzlich Tesseract-Binary nötig, s. README)
+pytesseract>=0.3.10
+
+# Entwicklung / Tests
+pytest>=8.0

@@ -1,0 +1,25 @@
+# Laufzeitdaten / runtime data (werden zur Laufzeit erzeugt)
+backups/
+cache/
+logs/
+diagnostics/
+reports/
+data/
+config/settings.json
+*.log
+
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+build/
+dist/
+
+# Installer-Artefakte / installer artifacts
+winenv/out/
+*.zip
+
+# Betriebssystem / OS
+Thumbs.db
+.DS_Store
